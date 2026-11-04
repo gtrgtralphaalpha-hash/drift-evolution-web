@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#101411">
+<title>Drift Evolution — مختبر الفيزياء</title>
+<link rel="stylesheet" href="/prototype/style.css">
+<script type="module" src="/prototype/main.js"></script>
+</head>
+<body>
+<main class="lab">
+<header><div><small>DRIFT EVOLUTION / TEST BUILD 01</small><h1>مختبر الانجراف</h1><p>سيارة واحدة · دفع خلفي · حلبة اختبار مصغّرة</p></div><div><button id="reset">إعادة السيارة</button><button id="sound">تشغيل الصوت</button></div></header>
+<section class="track">
+<canvas id="scene" aria-label="حلبة اختبار الدرفت"></canvas>
+<div class="hud"><div><small>السرعة</small><b id="speed">0</b><em>KM/H</em></div><div><small>RPM</small><b id="rpm">900</b></div><div><small>زاوية الانجراف</small><b id="angle">0°</b></div><div><small>النقاط</small><b id="score">0</b></div></div>
+<div class="gear">GEAR <b id="gear">N</b></div><div class="road" id="road">داخل الحلبة</div>
+<div class="overlay" id="overlay"><div><small>PHYSICS LAB / BUILD 01</small><h2>ابدأ اختبار السيارة</h2><p>اختبر التسارع والتوجيه والهاندبريك والانزلاق. شكل السيارة من الأعلى رمز تجريبي، والصوت اصطناعي مؤقت.</p><button id="start">ابدأ القيادة</button></div></div>
+</section>
+<section class="panels">
+<article><b>نمط القيادة</b><div class="modes"><button id="sim" class="active">واقعي</button><button id="arcade">Arcade</button></div><p id="modeText">استجابة مباشرة مع تماسك الإطارات والانزلاق.</p></article>
+<article><b>الصوت التجريبي</b><label>مستوى الصوت <strong id="volText">55%</strong></label><input id="volume" type="range" min="0" max="100" value="55"><p>مولّد إلكترونياً لاختبار تغير النبرة مع RPM وصوت احتكاك الإطارات؛ ليس تسجيلاً حقيقياً للمحرك.</p></article>
+<article><b>قراءة الفيزياء</b><p>انزلاق أمامي: <strong id="front">0°</strong></p><p>انزلاق خلفي: <strong id="rear">0°</strong></p><p>سرعة جانبية: <strong id="lateral">0 m/s</strong></p></article>
+</section>
+<footer>W / ↑ تسارع · S / ↓ فرامل · A / D توجيه · SPACE هاندبريك · R إعادة · P إيقاف</footer>
+<div class="touch"><div><button data-control="left">◀</button><button data-control="right">▶</button></div><div><button data-control="brake">فرامل</button><button data-control="handbrake">هاندبريك</button><button class="gas" data-control="throttle">بنزين</button></div></div>
+</main>
+</body>
+</html>
