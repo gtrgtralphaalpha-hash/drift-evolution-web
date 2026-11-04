@@ -12,6 +12,7 @@ const DIST = 'dist', DEV = 'dist-dev';
 const opts = {
   entryPoints: {
     'main': 'src/main.ts',
+    'prototype/main': 'src/prototype/main.js',
     'host/game-worker': 'src/host/game-worker.ts',
     'host/io-worker': 'src/host/io-worker.ts',
     'host/predownload-worker': 'src/host/predownload-worker.ts',
@@ -53,6 +54,9 @@ fs.mkdirSync(DIST, { recursive: true });
 // app's manifest and icons, for installing it on a phone's home screen or as a desktop app)
 fs.copyFileSync('index.html', path.join(DIST, 'index.html'));
 for (const f of fs.readdirSync('src/static')) fs.copyFileSync(path.join('src/static', f), path.join(DIST, f));
+// The isolated Drift Evolution physics/audio test track, served at /prototype/.
+fs.mkdirSync(path.join(DIST, 'prototype'), { recursive: true });
+for (const f of ['index.html', 'style.css']) fs.copyFileSync(path.join('src/prototype', f), path.join(DIST, 'prototype', f));
 // the start page's languages (src/app/lang, i18n.ts): /lang/<language>.json, fetched once a player picks one
 fs.rmSync(path.join(DIST, 'lang'), { recursive: true, force: true });
 fs.mkdirSync(path.join(DIST, 'lang'));
